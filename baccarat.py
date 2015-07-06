@@ -48,11 +48,13 @@ def mainfunction():
 	# 分隔开 http://wangwei007.blog.51cto.com/68019/903426
 	cards = cards.split('.')
 	# cards 的 int 数组
-	cardsArray = []
+	# cardsArray = []
 	# 循环把 string 转换成 int
-	for x in cards:
-		cardsArray.append(int(x))
-		pass
+	# for x in cards:
+	# 	cardsArray.append(int(x))
+	# 	pass
+
+	cardsArray = map(int,cards)
 
 	#下标 i
 	i = 0 
