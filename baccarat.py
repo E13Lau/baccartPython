@@ -95,39 +95,43 @@ def mainfunction():
 				playerCardThree = selection(playerCardThree)
 				playerPoint = getCardPoint(playerCardOne,playerCardTwo,playerCardThree)
 				pass
-			if bankerPoint == 3:
-				if playerCardThree != 8 and oldPlayerPoint < 6:
-					bankerCardThree = cardsArray[i]
-					i += 1
-					pass
-				pass
-			if bankerPoint == 4:
-				if playerCardThree < 8 and playerCardThree > 1 and oldPlayerPoint < 6:
-					bankerCardThree = cardsArray[i]
-					i += 1
-					# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
-					pass
-				pass
-			if bankerPoint == 5:
-				if playerCardThree < 8 and playerCardThree > 3 and oldPlayerPoint < 6:
-					bankerCardThree = cardsArray[i]
-					i += 1
-					# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
-					pass
-				pass
-			if bankerPoint == 6:
-				if playerCardThree == 6 or playerCardThree == 7:
-					bankerCardThree = cardsArray[i]
-					i += 1
-					# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
-					pass
-				pass
-			if bankerPoint < 3:
+			if oldPlayerPoint > 5 and bankerPoint < 6:
 				bankerCardThree = cardsArray[i]
 				i += 1
-				# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
 				pass
-				
+			else :
+				if bankerPoint == 3:
+					if playerCardThree != 8 and oldPlayerPoint < 6:
+						bankerCardThree = cardsArray[i]
+						i += 1
+						pass
+					pass
+				if bankerPoint == 4:
+					if playerCardThree < 8 and playerCardThree > 1 and oldPlayerPoint < 6:
+						bankerCardThree = cardsArray[i]
+						i += 1
+						# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
+						pass
+					pass
+				if bankerPoint == 5:
+					if playerCardThree < 8 and playerCardThree > 3 and oldPlayerPoint < 6:
+						bankerCardThree = cardsArray[i]
+						i += 1
+						# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
+						pass
+					pass
+				if bankerPoint == 6:
+					if playerCardThree == 6 or playerCardThree == 7:
+						bankerCardThree = cardsArray[i]
+						i += 1
+						# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
+						pass
+					pass
+				if bankerPoint < 3:
+					bankerCardThree = cardsArray[i]
+					i += 1
+					# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
+					pass
 			bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
 		print(whoWinAndWhat(playerPoint,bankerPoint))
 		pass
