@@ -59,12 +59,12 @@ def mainfunction():
 	#下标 i
 	i = 0 
 	while i < len(cardsArray):
-		if len(cardsArray) - i < 4:
-			# print 语句输出格式 http://www.pythonclub.org/python-basic/print
-			# 数组截取中间段 http://blog.itpub.net/22664653/viewspace-702940/
-			print('余下%s'%(cardsArray[-4:len(cardsArray)]))
-			break
-			pass
+		# if len(cardsArray) - i < 4:
+		# 	# print 语句输出格式 http://www.pythonclub.org/python-basic/print
+		# 	# 数组截取中间段 http://blog.itpub.net/22664653/viewspace-702940/
+		# 	print('余下%s'%(cardsArray[-4:len(cardsArray)]))
+		# 	break
+		# 	pass
 		playerCardOne = cardsArray[i]
 		i += 1
 		bankerCardOne = cardsArray[i]
@@ -83,6 +83,7 @@ def mainfunction():
 
 		bankerPoint = getCardPoint(bankerCardOne,bankerCardTwo)
 		playerPoint = getCardPoint(playerCardOne,playerCardTwo)
+		oldPlayerPoint = playerPoint
 
 		# http://www.bowenwang.com.cn/how-to-play-baccarat1.htm
 		if playerPoint > 7 or bankerPoint > 7:
@@ -95,40 +96,39 @@ def mainfunction():
 				playerPoint = getCardPoint(playerCardOne,playerCardTwo,playerCardThree)
 				pass
 			if bankerPoint == 3:
-				if playerCardThree != 8:
-					print(playerPoint)
+				if playerCardThree != 8 and oldPlayerPoint < 6:
 					bankerCardThree = cardsArray[i]
 					i += 1
-					bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
 					pass
 				pass
 			if bankerPoint == 4:
-				if playerCardThree < 8 and playerCardThree > 1:
+				if playerCardThree < 8 and playerCardThree > 1 and oldPlayerPoint < 6:
 					bankerCardThree = cardsArray[i]
 					i += 1
-					bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
+					# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
 					pass
 				pass
 			if bankerPoint == 5:
-				if playerCardThree < 8 and playerCardThree > 3:
+				if playerCardThree < 8 and playerCardThree > 3 and oldPlayerPoint < 6:
 					bankerCardThree = cardsArray[i]
 					i += 1
-					bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
+					# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
 					pass
 				pass
 			if bankerPoint == 6:
 				if playerCardThree == 6 or playerCardThree == 7:
 					bankerCardThree = cardsArray[i]
 					i += 1
-					bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
+					# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
 					pass
 				pass
 			if bankerPoint < 3:
 				bankerCardThree = cardsArray[i]
 				i += 1
-				bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
+				# bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
 				pass
-			pass
+				
+			bankerPoint = bankerGetCard(bankerCardOne,bankerCardTwo,bankerCardThree)
 		print(whoWinAndWhat(playerPoint,bankerPoint))
 		pass
 	# 循环运行
